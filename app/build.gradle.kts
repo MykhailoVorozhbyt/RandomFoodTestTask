@@ -1,5 +1,10 @@
+import extensions.CORE_MODULE
+import extensions.DATA_MODULE
+import extensions.DOMAIN_MODULE
 import extensions.addCompose
+import extensions.addKoinDi
 import extensions.addKtx
+import extensions.addRetrofit2
 import extensions.addTest
 
 plugins {
@@ -22,6 +27,12 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField(
+            "String",
+            "API_BASE_URL",
+            "\"https://test-task-server.mediolanum.f17y.com\""
+        )
     }
 
     buildTypes {
@@ -42,6 +53,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = AppConfig.kotlinCompilerExtensionVersion
@@ -57,4 +69,10 @@ dependencies {
     addKtx()
     addCompose()
     addTest()
+    addKoinDi()
+    addRetrofit2()
+    implementation(Library.Coil.coilCompose)
+    CORE_MODULE
+    DOMAIN_MODULE
+    DATA_MODULE
 }
