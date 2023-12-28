@@ -12,4 +12,8 @@ object AppConfig {
     const val jvmTarget = "1.8"
     const val kotlinCompilerExtensionVersion = "1.5.1"
 
+    //namespaces
+    const val dataNamespace = "com.example.data"
+    const val domainNamespace = "com.example.domain"
+    const val coreNamespace = "com.example.core"
 }
