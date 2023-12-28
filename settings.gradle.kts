@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "RandomFood"
 include(":app")
- 
+include(":domain")
+include(":data")
+include(":core")

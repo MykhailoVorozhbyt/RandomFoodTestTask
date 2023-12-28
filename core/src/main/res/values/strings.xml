@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RandomFood</string>
+    <string name="text_no_data_found">No suitable data found</string>
+    <string name="retry">Retry</string>
+</resources>

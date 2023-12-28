@@ -24,6 +24,7 @@ fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
 fun DependencyHandler.addKtx() {
     implementation(Library.Ktx.coreKtx)
     implementation(Library.Ktx.lifecycleRuntimeKtx)
+    implementation(Library.Ktx.lifecycleViewmodelKtx)
 }
 
 fun DependencyHandler.addCompose() {
@@ -33,6 +34,7 @@ fun DependencyHandler.addCompose() {
     implementation(Library.Compose.uiGraphics)
     implementation(Library.Compose.uiToolingPreview)
     implementation(Library.Compose.material3)
+    implementation(Library.Compose.navigationCompose)
     debugImplementation(Library.Compose.uiTooling)
     debugImplementation(Library.Compose.uiTestManifest)
 }
@@ -44,3 +46,24 @@ fun DependencyHandler.addTest() {
     androidTestImplementation(platform(Library.Compose.composeBom))
     androidTestImplementation(Library.Test.composeUiTestJunit4)
 }
+
+fun DependencyHandler.addKoinDi() {
+    implementation(Library.Di.koinAndroid)
+    implementation(Library.Di.koinAndroidxCompose)
+}
+
+fun DependencyHandler.addRetrofit2() {
+    implementation(Library.Retrofit2.retrofit)
+    implementation(Library.Retrofit2.converterGson)
+    implementation(Library.Retrofit2.loggingInterceptor)
+    implementation(Library.Retrofit2.gson)
+}
+
+val DependencyHandler.CORE_MODULE
+    get() = implementation(project(mapOf("path" to ":core")))
+
+val DependencyHandler.DOMAIN_MODULE
+    get() = implementation(project(mapOf("path" to ":domain")))
+
+val DependencyHandler.DATA_MODULE
+    get() = implementation(project(mapOf("path" to ":data")))
