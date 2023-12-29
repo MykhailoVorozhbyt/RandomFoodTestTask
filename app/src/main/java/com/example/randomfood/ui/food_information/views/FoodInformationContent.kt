@@ -6,6 +6,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -52,7 +54,9 @@ fun FoodInformationContent(
             popBackClick.invoke()
         }
         if (state.isLoaderVisible) {
-            ProgressView()
+            Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
+                ProgressView()
+            }
         } else {
             AnimatedVisibility(
                 visible = true,
