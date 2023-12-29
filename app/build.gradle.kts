@@ -72,6 +72,8 @@ dependencies {
     addKoinDi()
     addRetrofit2()
     implementation(Library.Coil.coilCompose)
+    implementation(Library.Accompanist.navigationAnimation)
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     CORE_MODULE
     DOMAIN_MODULE
     DATA_MODULE

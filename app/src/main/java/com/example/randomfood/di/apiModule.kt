@@ -3,7 +3,7 @@ package com.example.randomfood.di
 import com.example.data.remote_api.RemoteApi
 import com.example.data.remote_api.RemoteApiImpl
 import com.example.randomfood.BuildConfig
-import com.example.core.utils.IgnoreExclusionStrategy
+import com.example.randomfood.utils.AppInterceptor
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -19,7 +19,8 @@ val apiModule = module {
 
     val provideGson: Gson by lazy {
         GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-            .addSerializationExclusionStrategy(com.example.core.utils.IgnoreExclusionStrategy()).create()
+            .addSerializationExclusionStrategy(com.example.core.utils.IgnoreExclusionStrategy())
+            .create()
     }
 
     val provideConverterFactory: Converter.Factory by lazy { GsonConverterFactory.create(provideGson) }
@@ -29,8 +30,10 @@ val apiModule = module {
             level = if (BuildConfig.DEBUG)
                 HttpLoggingInterceptor.Level.BODY else
                 HttpLoggingInterceptor.Level.NONE
+
         }
         OkHttpClient.Builder()
+            .addInterceptor(AppInterceptor())
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(1, TimeUnit.MINUTES)
             .addInterceptor(interceptor)
