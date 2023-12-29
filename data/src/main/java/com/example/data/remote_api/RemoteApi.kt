@@ -3,7 +3,7 @@ package com.example.data.remote_api
 import com.example.domain.responses.FoodInformationResponse
 import com.example.domain.responses.RandomResponse
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface RemoteApi {
 
@@ -12,6 +12,6 @@ interface RemoteApi {
 
     @GET("/texts/{itemId}")
     suspend fun getFoodById(
-        @Query("itemId") itemId: String
+        @Path("itemId") itemId: String
     ): FoodInformationResponse
 }

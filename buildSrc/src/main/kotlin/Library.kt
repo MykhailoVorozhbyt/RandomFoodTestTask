@@ -45,5 +45,9 @@ object Library {
         const val coilCompose = "io.coil-kt:coil-compose:2.5.0"
     }
 
+    object Accompanist {
+        const val navigationAnimation = "com.google.accompanist:accompanist-navigation-animation:0.32.0"
+    }
+
 
 }

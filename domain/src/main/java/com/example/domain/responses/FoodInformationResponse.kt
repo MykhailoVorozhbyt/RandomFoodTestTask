@@ -1,6 +1,10 @@
 package com.example.domain.responses
 
+import com.google.gson.annotations.SerializedName
+
 data class FoodInformationResponse(
-    val id: String?,
-    val text: String?
+    @SerializedName("id")
+    val id: String = "",
+    @SerializedName("text")
+    val text: String = ""
 )

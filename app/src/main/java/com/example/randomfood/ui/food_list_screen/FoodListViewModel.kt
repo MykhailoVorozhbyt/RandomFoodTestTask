@@ -15,12 +15,14 @@ class FoodListViewModel(
     MviViewModel<BaseViewState<FoodListUiState>, FoodListUiEvent>() {
     override fun onTriggerEvent(eventType: FoodListUiEvent) {
         when (eventType) {
-            is FoodListUiEvent.ReloadClick, FoodListUiEvent.InitUiScreen -> triggerEvent()
+            is FoodListUiEvent.ReloadClick, FoodListUiEvent.InitUiScreen -> {
+                startLoading()
+                triggerEvent()
+            }
         }
     }
 
     private fun setDataState(state: FoodListUiState) {
-        startLoading()
         setState(BaseViewState.Data(state))
     }
 
