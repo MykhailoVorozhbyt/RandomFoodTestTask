@@ -1,3 +1,4 @@
+import extensions.DOMAIN_MODULE
 import extensions.addCompose
 import extensions.addKtx
 
@@ -44,4 +45,5 @@ dependencies {
     addKtx()
     addCompose()
     implementation(Library.Retrofit2.gson)
+    DOMAIN_MODULE
 }

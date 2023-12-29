@@ -7,6 +7,7 @@ import com.example.core.ui.EmptyView
 import com.example.core.ui.ErrorView
 import com.example.core.ui.LoadingView
 import com.example.core.utils.cast
+import com.example.domain.entities.FoodInfoEntity
 import com.example.randomfood.ui.food_list_screen.models.FoodListUiState
 import com.example.randomfood.ui.food_list_screen.views.FoodListContent
 
@@ -16,7 +17,7 @@ fun FoodListScreen(
     viewState: BaseViewState<*>,
     initUi: () -> Unit,
     pressOnReload: () -> Unit,
-    foodItemClick: (id: String) -> Unit
+    foodItemClick: (FoodInfoEntity) -> Unit
 ) {
     val dataState by lazy { viewState.cast<BaseViewState.Data<FoodListUiState>>().value }
     val throwable by lazy { viewState.cast<BaseViewState.Error>().throwable }
